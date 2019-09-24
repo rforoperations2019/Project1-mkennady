@@ -18,7 +18,7 @@ sidebar <- dashboardSidebar(
              badgeLabel = "Staff", badgeColor = "light-blue"),
     menuItem("Website Analysis", tabName = "dashboard", icon = icon("sort-numeric-up"),
              badgeLabel = "Staff", badgeColor = "light-blue"),
-    menuItem("eePRO Groups Traffic", tabName = "widgets", icon = icon("users"), 
+    menuItem("eePRO Groups", tabName = "widgets", icon = icon("users"), 
              badgeLabel = "Moderators", badgeColor = "green")
   )
 )
