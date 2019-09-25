@@ -29,14 +29,7 @@ sidebar <- dashboardSidebar(
   )
 )
 
-exportInput <- reactive({
-  req(input$country, input$location1)
-  if (input$location1 == "the World") {
-    subset(exports, Country == input$country & (Partner == "non-EU Countries" | Partner == "EU Member States"))
-  } else {
-    subset(exports, Country == input$country & Partner == input$location1)
-  }
-})
+
 
 
 

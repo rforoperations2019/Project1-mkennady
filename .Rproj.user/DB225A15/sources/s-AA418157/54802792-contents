@@ -1,0 +1,35 @@
+library(readr)
+require(RGoogleAnalytics)
+
+# Authorize the Google Analytics account
+# This need not be executed in every session once the token object is created 
+# and saved
+token <- Auth(
+  "119882544839-7tnnfgmgpdp3avuqgbrfdf56pdgod2hi.apps.googleusercontent.com"
+  , "ajItlvyHPMPbk4cA0zkUhmX2")
+
+# Save the token object for future sessions
+save(token,file="./token_file")
+
+# In future sessions it can be loaded by running load("./token_file")
+
+ValidateToken(token)
+
+# Build a list of all the Query Parameters
+# see dimension and metric options here: https://ga-dev-tools.appspot.com/dimensions-metrics-explorer/
+query.list <- Init(start.date = "2019-02-02",
+                   end.date = "2019-09-23",
+                   dimensions = "ga:date,ga:pagePath,ga:pageTitle",
+                   metrics = "ga:users,ga:pageviews, ga:sessions, ga:bounceRate, ga:exitRate, ga:avgTimeOnPage, ga:entrances",
+                   max.results = 300000,
+                   sort = "-ga:date",
+                   #View ID of Google Analytics account
+                   table.id = "ga:111633365")
+
+# Create the Query Builder object so that the query parameters are validated
+ga.query <- QueryBuilder(query.list)
+
+# Extract the data and store it in a data-frame
+ga.data <- GetReportData(ga.query, token, split_daywise = T, delay = 5)
+write.csv(ga.data, file = "C:\\RNAAEE\\Feb-Sep2019.csv")
+
