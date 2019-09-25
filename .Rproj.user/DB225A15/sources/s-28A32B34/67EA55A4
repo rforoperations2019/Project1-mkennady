@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1569447750588.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "67EA55A4",
+    "lastKnownWriteTime" : 5292976843906638626,
+    "last_content_update" : 1569447750588,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "D0293099",
+        "caption" : "GAdata",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=GAdata&cache_key=D0293099",
+        "displayedObservations" : "254116",
+        "environment" : "",
+        "object" : "GAdata",
+        "preview" : "0",
+        "totalObservations" : "254116",
+        "variables" : "10"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

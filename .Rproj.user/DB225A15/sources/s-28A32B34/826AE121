@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1569376288573.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "826AE121",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1569376288573,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "3B6E8E34",
+        "caption" : "GA2019",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=GA2019&cache_key=3B6E8E34",
+        "displayedObservations" : "254116",
+        "environment" : "",
+        "object" : "GA2019",
+        "preview" : "0",
+        "totalObservations" : "254116",
+        "variables" : "10"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

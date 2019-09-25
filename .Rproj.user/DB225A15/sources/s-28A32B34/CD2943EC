@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1569367528803.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3393154820",
+    "id" : "CD2943EC",
+    "lastKnownWriteTime" : 1569448179,
+    "last_content_update" : 1569448179613,
+    "path" : "C:/RShiny/Project1-mkennady/DataPrep.R",
+    "project_path" : "DataPrep.R",
+    "properties" : {
+        "cursorPosition" : "27,0",
+        "scrollLine" : "3"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
