@@ -31,6 +31,12 @@ write_csv(GAdata, "data/2019_NAAEE_GoogleAnalytics.csv")
 #test <- subset(GA2019, GA2019$date <= as.Date("2019-08-31") & GA2019$date >= as.Date("2019-08-01") & (str_detect(GA2019$pagePath, "404", negate=FALSE) == TRUE))
 
 
+data <- GAdata[,colnames(GAdata) == "date"|colnames(GAdata) == "users"]
+data <- subset(data, date <= "2019-08-31" & date >= "2019-08-01")
+
+ggplot(data, aes(x=date)) + 
+  geom_histogram()
+
 
 
 

@@ -30,7 +30,7 @@ sidebar <- dashboardSidebar(
                    format = "mm/dd/yy", startview = 'month'),
     textInput("text",
               label = "Input URL search here",
-              value = "jobs"),
+              value = "naaee"),
     checkboxInput(inputId = "previous",label = "Compare previous period")
 
   )
@@ -49,28 +49,30 @@ body <- dashboardBody(
 ),
     tabItem(tabName = "pageviews",
             fluidRow(
-              if (textOutput(outputId = "previous") == "checked") {
-                column(title = "Pageviews", plotOutput(outputId = "pageviews"), width = 3)
-                column(title = "Bar chart", plotOutput(outputId = "pageviews.previous"), width = 3)
-              } else {
-                box(title = "Bar chart", plotOutput(outputId = "pageviews"), width = 6)
-              }
-
-            )
-    )
+              box(width = 6, plotOutput(outputId = "pageviews")),
+              box(width = 6, conditionalPanel("input.previous", 
+                               column(width = 12, plotOutput(outputId = "pageviews.previous")))))
+    ),
+tabItem(tabName = "users",
+        fluidRow(
+          box(width = 6, plotOutput(outputId = "users")),
+          box(width = 6, conditionalPanel("input.previous", 
+                                          column(width = 12, plotOutput(outputId = "users.previous")))))
 )
 )
-
+)
 
 ui <- dashboardPage(header, sidebar, body)
 
 server <- function(input, output) { 
   
-  output$previous <- reactive({
-    if(input$previous) {
-      "checked"
+  output$previousCheck <- reactive({
+    if (input$previous == FALSE) {
+      "test4"
     }
   })
+  
+  #outputOptions(output, "previousCheck", suspendWhenHidden = FALSE)
   
   GA.data <- reactive({
     req(input$date, input$text)
@@ -98,14 +100,42 @@ server <- function(input, output) {
     ))
   
 
-  output$pageviews.previous <- renderPlot({
-    ggplot(GA.data.previous(), aes(x=date)) + 
-      geom_bar()
-  })
+  # output$pageviews.previous <- renderPlot({
+  #   ggplot(GA.data.previous(), aes(x=date)) + 
+  #     geom_bar()
+  # })
+  # 
+  # output$pageviews <- renderPlot({
+  #   ggplot(GA.data(), aes(x=date)) + 
+  #     geom_bar()
+  # })
+  
   
   output$pageviews <- renderPlot({
-    ggplot(GA.data(), aes(x=date)) + 
-      geom_bar()
+    data <- GA.data()[,colnames(GA.data()) == "date"|colnames(GA.data()) == "pageviews"]
+    ggplot(data, aes(x=date)) + 
+      geom_histogram()
+  })
+  
+  output$pageviews.previous <- renderPlot({
+    data <- GA.data.previous()[,colnames(GA.data.previous()) == "date"|colnames(GA.data.previous()) == "pageviews"]
+    ggplot(data, aes(x=date)) + 
+      geom_histogram()
+  })
+  
+  
+  
+  output$users <- renderPlot({
+    data <- GA.data()[,colnames(GA.data()) == "date"|colnames(GA.data()) == "users"]
+    ggplot(data, aes(x=date)) + 
+      geom_histogram()
+  })
+  
+  
+  output$users.previous <- renderPlot({
+    data <- GA.data.previous()[,colnames(GA.data.previous()) == "date"|colnames(GA.data.previous()) == "users"]
+    ggplot(data, aes(x=date)) + 
+      geom_histogram()
   })
   
   
