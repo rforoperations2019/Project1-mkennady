@@ -1,0 +1,13 @@
+name: Project1-mkennady
+title: Project1-mkennady
+username:
+account: mkennady
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1255722
+bundleId: 2450370
+url: https://mkennady.shinyapps.io/Project1-mkennady/
+when: 1569608914.57535
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: DataPrep.R
